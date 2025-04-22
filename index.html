@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>তোমার চোখে আমার পৃথিবী – লামিয়া</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #3B444B;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Fixed alignment */
+            height: 100vh;
+            width:100%;
+            overflow-x: hidden; /* Removed horizontal overflow */
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 15px; /* Padding to prevent content touching edges */
+        }
+
+        .hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-shadow: 1px 1px 5px #000;
+    text-align: center;
+    overflow: hidden;
+    z-index: 1;
+   
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('bg.jpg') no-repeat center center/cover;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.hero h1, .hero p, .love, .love2{
+    transform: translateY(30px);
+    animation: fadeUp 1.2s ease forwards;
+    z-index: 2; /* যেন লেখা উপরে থাকে */
+}
+
+.hero h1 {
+    animation-delay: 0.3s;
+}
+
+.hero p, .love, .love2 {
+    animation-delay: 1s;
+}
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+.love{
+              margin:20px;
+              font-size:1.3rem;
+              
+              
+            }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding:2rem;
+            max-width:1200px;
+            margin: 0 auto;
+           
+        }
+
+      .gallery-item {
+  background: #fff5f8;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(255, 105, 180, 0.2);
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(255, 105, 180, 0.35);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  border-bottom: 2px solid #ffc0cb;
+}
+
+.caption {
+  background: #fff0f5;
+  padding: 0rem 1.5rem;
+  font-size: 1rem;
+  font-family: 'Noto Serif Bengali', serif;
+  color: #c2185b;
+  text-align: center;
+  position: relative;
+  line-height: 1.9;
+  border-radius: 0 0 20px 20px;
+}
+
+.caption::before,
+.caption::after {
+  content: "❤";
+  font-size: 1.4rem;
+  color: #f06292;
+  position: absolute;
+  top: 10px;
+}
+
+.caption::before {
+  left: 15px;
+}
+
+.caption::after {
+  right: 15px;
+}
+
+        .quote-section {
+            background-color: #fff0f5;
+            padding: 4rem 2rem;
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #c2185b;
+            position: relative;
+            border-radius:10px;
+        }
+
+        .quote-section::before,
+        .quote-section::after {
+            content: "❤";
+            font-size: 2rem;
+            color: #e91e63;
+            position: absolute;
+            top: 1rem;
+        }
+
+        .quote-section::before {
+            left: 1rem;
+        }
+
+        .quote-section::after {
+            right: 1rem;
+        }
+
+        .footer {
+    background-color: #f5dce5;
+    text-align: center;
+    padding: 2rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 2rem; /* এই লাইনটি নতুন যোগ হয়েছে */
+}
+
+        audio {
+            display: none;
+        }
+
+.gallery-item {
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 1s ease, transform 1s ease, transform 2s ease, box-shadow 0.4s ease;
+}
+
+.gallery-item.left {
+    transform: translateX(-50px);
+}
+
+.gallery-item.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+ .message-section {
+    opacity: 1;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+    padding: 2rem;
+    text-align: center;
+    font-size: 1.2rem;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    color: white;
+    z-index: 1;
+    overflow: hidden;
+    border-radius:10px;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.7);
+    
+}
+
+.message-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('bg2.jpeg'); /* এখানে ছবির URL বা path দাও */
+    background-repeat: repeat-y;
+    background-repeat:auto;
+    opacity: 0.5;
+    z-index: -1;
+}
+        
+   .message-section.sshow{
+   
+   opacity:1;
+            transform: translateY(0);}
+            
+        
+        
+        
+.heart {
+            color: #ff3366;
+            font-size: 2rem;
+            margin: 0 0.3rem;
+            animation: pulse 1.5s infinite;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="hero">
+            <div class="love">I Love You Lamiya</div>
+          
+            <h1>তোমার হাসি আমার পৃথিবীর আলো </h1>  
+            <p>– তোমার জামাইয়ের তরফ থেকে</p>
+        </section>
+
+        <section class="gallery">
+            <div class="gallery-item left"><img src="photo1.jpg" alt="Photo 1">
+            
+            <div class="caption">🌻ღـــــــــ🌺༏༏──🥀 <br>প্রিয় তুমি কি আমার জীবনের সেই গল্প হবে? যেই গল্পের শুরু থাকবে, কিন্তু কোনো শেষ থাকবে না <br>🌻ღـــــــــ🌺༏༏──🥀। </div>
+         
+            </div>
+            <div class="gallery-item"><img src="photo2.jpg" alt="Photo 2"><div class="caption"> 🌺༏༏──💕তোমার হাসির সৌন্দর্য এতটাই মনমুগ্ধকর আমি তা দেখলেই ভুলে যাই পৃথিবীর সকল সৌন্দর্য🌺༏༏──💕 </div></div>
+            <div class="gallery-item left"><img src="photo3.jpg" alt="Photo 3"><div class="caption">💠✦💟✦💠আল্লাহর কাছ থেকে তুমি আমার সবচেয়ে বড় পাওয়া,,, সবচেয়ে বড় নেয়ম💠✦💟✦💠 </div></div>
+            <div class="gallery-item"><img src="photo4.jpg" alt="Photo 4"><div class="caption">
+🌺༏༏──💕আমি ছিলাম, আমি আছি
+আমি থাকবো, শুধু তোমারই জন্য।🌺༏༏──💕</div></div>
+            <div class="gallery-item left"><img src="photo5.jpg" alt="Photo 5"><div class="caption">★ღـ💛ــــــــতোমাকে ভালো না বাসলে, আমি হয়তো কখনো ভালোবাসার অনুভূতি কি সেটা বুঝতেই পারতাম না । ★ღـــــــــ💛</div></div>
+            <div class="gallery-item"><img src="photo6.jpg" alt="Photo 6"><div class="caption">༏༏──💝তোমায় আমি কখনো হারাতে চাই না তাই তোমায় প্রতিদিন নতুন করে ভালোবাসা ༏༏──💝</div></div>
+            <div class="gallery-item left"><img src="photo7.jpg" alt="Photo 7"><div class="caption"> ___ღ✿❃.•°࿐তুমি আমার মিষ্টি বউ☺️ আমার মিষ্টি পাখি ☺️অসম্ভব ভালোবাসি তোমায় !!🦋✰დ </div></div>
+            <div class="gallery-item"><img src="photo8.jpg" alt="Photo 8"><div class="caption"> 😊💞🌺 তোমার  মেসেজের নোটিফিকেশন পাওয়া মাত্রই ভিতরটা আতকে উঠে যে কাজেই থাকি সাথে সাথে ফিরে আসি তোমার দিকে 🌸🖤💞</div></div>
+            <div class="gallery-item left"><img src="photo9.jpg" alt="Photo 9"><div class="caption">🌻ღতুমি আমার স্বপ্ন, তুমি আমার জীবনের প্রতিটি সুন্দর মুহূর্ত।🌻ღ</div></div>
+            <div class="gallery-item"><img src="photo10.jpg" alt="Photo 10"><div class="caption"> 🌸☺️🥀 আমি হাজার জন চাই না সুধু তোমাকেই চাই তোমায় নিয়ে আমার সব আশা স্বপ্ন পূর্ন করতে চাই 🌸😚🥀 </div></div>
+            <div class="gallery-item left"><img src="photo11.jpg" alt="Photo 11"><div class="caption">💞🖤🌸 তুমি আমার সেই সুখ যা অন্য কোথায়ও আমি খুজে পাই না 🌸🖤🌺 </div></div>
+            <div class="gallery-item"><img src="photo12.jpg" alt="Photo 12"><div class="caption"> 🌺💞😊 যত দূরেই থাকো তুমি বিন্দু পরিমান ভালোবাসা কমবে না তোমার প্রতি,,, কারণ তুমি আমার হৃদয়ের সব সময় আছো 🌺😊🌸 </div></div>
+            <div class="gallery-item left"><img src="photo13.jpg" alt="Photo 13"><div class="caption"> 💚°•━━━━🥀তোমার চোখে তাকালেই আমি সব ভুলে যায় প্রবেশ করি ভিন্ন এক জগতে সেখানে শুধু তুমি আর আমি 💚°•━━━━🥀 </div></div>
+            <div class="gallery-item"><img src="photo14.jpg" alt="Photo 14"><div class="caption">💕🌷ღএমন ভালোবাসা খুঁজে পাওয়া কঠিন, কিন্তু আমি তা পেয়েছি তোমার মধ্যে।💕🌷ღ</div></div>
+            <div class="gallery-item left"><img src="photo15.jpg" alt="Photo 15"><div class="caption"> 🌻ღـــــــــ🌺আমার কাছে পৃথিবীর সবচেয়ে সুন্দর মানুষ তুমি ।🌻ღـــــــــ🌺</div></div>
+        </section>
+
+        <section class="quote-section">
+            “তুমি আমার ভালোবাসা ☺️ তুমি আমার সবচেয়ে বড় নিয়ামত”
+        </section>
+
+ <section class="message-section">
+        <span class="heart">❤</span>
+        পাখি দেখতে দেখতে আমাদের ভালোবাসার আজ এক বছর পূর্ণ হয়ে গেছে। কত সুন্দর ছিলো তোমার প্রেমে পরার মূহুর্ত গুলা 😊।  বুঝেতই পারিনি কেমন করে একবছর পার হয়ে গেলো। এই একটা বছরে কত কিছু হয়ে গেছে তোমার আর আমার সাথে কখনো আন্দন কখনো কষ্ট আবার কখনো রাগ অবিমান আবার কখনো ভুল বুঝাবুঝি কত কিছু হয়ে গেলো কিন্তু তুমি আর আমি কিন্তু কেও কাউকে ছেরে যাইনি। যত যা কিছুই করছি দিন শেষে আমারা আবার হাসছি ☺️। যখন তুমি রাগ করতা একটুও শান্তি লাগতো না কোনো কাজেই মন বসতো না খালি একটা চিন্তাই মাথায় গুরুপাক খেতে কখন তোমার সাথে কথা বলবো কখন তোমারা রাগ ভাঙ্গাবো। অনেক বার আমাদের কথা বাল বন্ধ ছিলো ২০ দিন পর্যন্তও বন্ধ  ছিলো কিন্তু আমাদের ভালোবাসা এত টা গবির ছিলো যে আমরা কেও কাউ কে ভুলি নি।  আমাদের ভালোবাসাটা অনলাইনেই সীমাবদ্ধ কিন্তু বিশ্বাস করো অনলাইন হোক আর সরাসরি হকো তোমায় আমি এতটা ভালোবেসে ফেলি যে মৃতুর আগ পর্যন্ত তোমায় আমি ভুলতে পারো না। তোমায়  ছাড়া আমি কোনো দিনও থাকতে পারবো না। সোনা যাই হোক যত বাধাই আসোক তোমায় আমি হারাতে ভুলবো না। কখনই হারাতে চাইবো না। 
+এই যে দেখো মাজে মাজে কোনো কোনো কারনে আমাদের কথা বলা বন্ধ হয়ে যায় বন্ধ হলে দেখবা নিজের বিতরে কষ্ট অনুভব হবে আর এই কষ্ট টা অনুভব হয়া টাই ভালোবাসার বড় একটা প্রমান😊। ভালোবাসায় যত বেশি বাধা আসবে তত বেশি মজবুত হবে। আজ আমি অনেক খুশি 😊 আমাদের ভালোবাসার এক বছর পূর্ন হওয়া তে।আল্লাহর কাছে হাজার হাজার শুকরিয়া যে তোমার মত একজ মেয়ে আমার জিবনে দিয়েছে। দোয়া করি আল্লাহ তায়ালা যেন সব সময় আমাদের ভালোবাসাটা এরকম শ্রুতি মধু রাখেন 🥰☺️। <span class="heart">❤</span>
+    </section>
+
+
+        
+    </div>
+ <script>
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.gallery-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
